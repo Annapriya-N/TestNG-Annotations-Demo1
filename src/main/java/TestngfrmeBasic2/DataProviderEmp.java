@@ -5,21 +5,19 @@ import org.testng.annotations.Test;
 
 public class DataProviderEmp {
    
-	@DataProvider(name = "logindata")
+	@DataProvider(name="testdata")
 	public Object[][] testcase()
 	{
 		return new Object[][]
-		{
-			{"user1","password1"},
-			{"user2","password2"}
-		};
-		
-		
+				{
+			{"user","pass"},
+			{"user1","pass1"}
+				};
 	}
-
-	@Test
-	public void load(String username, String Password)
+	
+	@Test(dataProvider="testdata")
+	public void loadtest(String Username,String Password)
 	{
-		System.out.println("UserName : "+username +"Password : "+Password);
+		System.out.println("Username is : "+Username +"and  Password is : " + Password);
 	}
 }
